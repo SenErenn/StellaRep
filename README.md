@@ -51,7 +51,7 @@ StellaRep creates a **portable, decentralized credit score (0-1000)**.
 
 StellaRep employs a 3-tier architecture designed for security, scalability, and performance.
 
-```text
+'''mermaid
 graph TD
     User[User Wallet<br/>Freighter/Meta] <--> Frontend[React Frontend<br/>Vite + UI]
     Frontend <--> Backend[Spring Boot Backend<br/>REST API Engine]
@@ -65,7 +65,7 @@ graph TD
     
     classDef box fill:#1e1e1e,stroke:#9370db,stroke-width:2px,color:#fff;
     class User,Frontend,Backend,Stellar,Soroban,Eth,DB box;
-```
+'''
 
 1.  **Data Aggregation Layer (Backend):** The Java Spring Boot engine connects to Stellar Horizon and Etherscan APIs to fetch raw transaction history, asset holdings, and account age.
 2.  **Computation Layer (Service):** Our proprietary weighted algorithm normalizes data from different chains into a unified standardized score.
