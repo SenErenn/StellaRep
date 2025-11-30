@@ -31,7 +31,7 @@ stellar:
     admin-secret: 
 
 etherscan:
-  api-key: ${ETHERSCAN_API_KEY:WB57WE4I86T5XXYNJRGG8QAU3UPEJ6XDVZ}
+  api-key: ${ETHERSCAN_API_KEY}
   base-url: https://api.etherscan.io/api
 
 app:
