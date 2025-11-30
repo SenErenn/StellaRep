@@ -51,29 +51,20 @@ StellaRep creates a **portable, decentralized credit score (0-1000)**.
 
 StellaRep employs a 3-tier architecture designed for security, scalability, and performance.
 
-```mermaid
-+------------------+      +------------------+      +-------------------------+
-|                  |      |                  |      |                         |
-|   User Wallet    | <--> |   React Frontend | <--> |   Spring Boot Backend   |
-| (Freighter/Meta) |      |   (Vite + UI)    |      |   (REST API Engine)     |
-|                  |      |                  |      |                         |
-+------------------+      +------------------+      +------------+------------+
-                                                                 |
-                                                                 v
-+------------------+      +------------------+      +------------+------------+
-|                  |      |                  |      |                         |
-|  Stellar Chain   | <--> | Soroban Contract | <--> |   PostgreSQL Database   |
-|  (Horizon API)   |      | (On-Chain Data)  |      |   (Off-Chain Index)     |
-|                  |      |                  |      |                         |
-+------------------+      +------------------+      +-------------------------+
-         ^
-         |
-+------------------+
-|                  |
-|   Ethereum API   |
-|    (Etherscan)   |
-|                  |
-+------------------+
+```text
+graph TD
+    User[User Wallet<br/>Freighter/Meta] <--> Frontend[React Frontend<br/>Vite + UI]
+    Frontend <--> Backend[Spring Boot Backend<br/>REST API Engine]
+    
+    Backend <--> DB[(PostgreSQL Database<br/>Off-Chain Index)]
+    
+    Backend <--> Stellar[Stellar Chain<br/>Horizon API]
+    Stellar <--> Soroban[Soroban Contract<br/>On-Chain Data]
+    
+    Backend --> Eth[Ethereum API<br/>Etherscan]
+    
+    classDef box fill:#1e1e1e,stroke:#9370db,stroke-width:2px,color:#fff;
+    class User,Frontend,Backend,Stellar,Soroban,Eth,DB box;
 ```
 
 1.  **Data Aggregation Layer (Backend):** The Java Spring Boot engine connects to Stellar Horizon and Etherscan APIs to fetch raw transaction history, asset holdings, and account age.
