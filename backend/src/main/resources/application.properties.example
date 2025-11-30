@@ -1,0 +1,6 @@
+spring.datasource.url=jdbc:postgresql://localhost:5432/stellarep
+spring.datasource.username=postgres
+spring.datasource.password=your_password
+
+etherscan.api-key=your_etherscan_api_key
+app.admin-secret=your_admin_secret_key

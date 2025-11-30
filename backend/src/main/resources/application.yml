@@ -1,0 +1,40 @@
+spring:
+  application:
+    name: stellarep-backend
+  datasource:
+    url: jdbc:postgresql://localhost:5432/stellarep
+    username: ${DB_USERNAME:postgres}
+    password: ${DB_PASSWORD:postgres}
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+
+server:
+  port: 8080
+  servlet:
+    context-path: /api
+
+stellar:
+  horizon:
+    testnet-url: https://horizon-testnet.stellar.org
+    mainnet-url: https://horizon.stellar.org
+    network: testnet
+  soroban:
+    contract-id: CCCT5I4YA7DRCOWT4FGQ5LJY5BP5DH4BTYQXO5LSGDBCJ3FEBM6OO4V5
+    network-passphrase: Test SDF Network ; September 2015
+    admin-secret: 
+
+etherscan:
+  api-key: ${ETHERSCAN_API_KEY:WB57WE4I86T5XXYNJRGG8QAU3UPEJ6XDVZ}
+  base-url: https://api.etherscan.io/api
+
+app:
+  admin-secret: ${ADMIN_SECRET:your-admin-secret-key}
+  cors:
+    allowed-origins: http://localhost:3000,http://localhost:5173
