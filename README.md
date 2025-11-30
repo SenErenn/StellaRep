@@ -51,7 +51,7 @@ StellaRep creates a **portable, decentralized credit score (0-1000)**.
 
 StellaRep employs a 3-tier architecture designed for security, scalability, and performance.
 
-```mermaid
+```text
 +------------------+      +------------------+      +-------------------------+
 |                  |      |                  |      |                         |
 |   User Wallet    | <--> |   React Frontend | <--> |   Spring Boot Backend   |
